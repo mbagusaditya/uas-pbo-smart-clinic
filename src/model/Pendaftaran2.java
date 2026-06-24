@@ -12,12 +12,13 @@ public class Pendaftaran2 {
     private Pasien pasien;
     private Dokter dokter;
 
-    public Pendaftaran2(int idDaftar,
-                       Date tanggal,
-                       String keluhan,
-                       Pasien pasien,
-                       Dokter dokter) {
-
+    public Pendaftaran2(
+        int idDaftar,
+        Date tanggal,
+        String keluhan,
+        Pasien pasien,
+        Dokter dokter
+    ) {
         this.idDaftar = idDaftar;
         this.tanggal = tanggal;
         this.keluhan = keluhan;
@@ -26,16 +27,10 @@ public class Pendaftaran2 {
     }
 
     public void daftarPasien() {
-
-        System.out.println(
-                pasien.getNama()
-                + " berhasil daftar");
+        System.out.println(pasien.getNama() + " berhasil daftar");
     }
 
     public void tampilAntrian() {
-
-        System.out.println(
-                "Antrian pasien : "
-                + pasien.getNama());
+        System.out.println("Antrian pasien : " + pasien.getNama());
     }
 }

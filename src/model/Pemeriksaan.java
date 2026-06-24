@@ -22,7 +22,32 @@ public class Pemeriksaan {
     private String hasilPrediksi;
     private String tingkatResiko;
 
-    public Pemeriksaan() {
+    public Pemeriksaan() {}
+
+    public Pemeriksaan(
+        int idPeriksa,
+        Pendaftaran pendaftaran,
+        Date tanggalPeriksa,
+        String diagnosa,
+        double tekananDarah,
+        double gulaDarah,
+        double suhu,
+        double beratBadan,
+        String catatan,
+        String hasilPrediksi,
+        String tingkatResiko
+    ) {
+        this.idPeriksa = idPeriksa;
+        this.pendaftaran = pendaftaran;
+        this.tanggalPeriksa = tanggalPeriksa;
+        this.diagnosa = diagnosa;
+        this.tekananDarah = tekananDarah;
+        this.gulaDarah = gulaDarah;
+        this.suhu = suhu;
+        this.beratBadan = beratBadan;
+        this.catatan = catatan;
+        this.hasilPrediksi = hasilPrediksi;
+        this.tingkatResiko = tingkatResiko;
     }
 
     public int getIdPeriksa() {
@@ -116,20 +141,14 @@ public class Pemeriksaan {
     // helper tableview
 
     public String getNamaPasien() {
-        return pendaftaran != null
-                ? pendaftaran.getNamaPasien()
-                : "";
+        return pendaftaran != null ? pendaftaran.getNamaPasien() : "";
     }
 
     public String getNamaDokter() {
-        return pendaftaran != null
-                ? pendaftaran.getNamaDokter()
-                : "";
+        return pendaftaran != null ? pendaftaran.getNamaDokter() : "";
     }
 
     public String getKeluhan() {
-        return pendaftaran != null
-                ? pendaftaran.getKeluhan()
-                : "";
+        return pendaftaran != null ? pendaftaran.getKeluhan() : "";
     }
 }

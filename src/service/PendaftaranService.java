@@ -15,16 +15,13 @@ public class PendaftaranService {
     // GET ALL
     // =========================
     public ObservableList<Pendaftaran> getAll() {
-
         return dao.getAllPendaftaran();
     }
 
     // =========================
     // SEARCH
     // =========================
-    public ObservableList<Pendaftaran> search(
-            String keyword) {
-
+    public ObservableList<Pendaftaran> search(String keyword) {
         //return dao.search(keyword);
         return null;
     }
@@ -32,13 +29,9 @@ public class PendaftaranService {
     // =========================
     // DELETE
     // =========================
-    public void delete(int id)
-            throws Exception {
-
-        if(id <= 0){
-
-            throw new Exception(
-                    "ID tidak valid");
+    public void delete(int id) throws Exception {
+        if (id <= 0) {
+            throw new Exception("ID tidak valid");
         }
 
         dao.deletePendaftaran(id);
@@ -47,40 +40,25 @@ public class PendaftaranService {
     // =========================
     // SIMPAN
     // =========================
-    public void simpan(
-            Pendaftaran p,
-            boolean editMode)
-            throws Exception {
-
+    public void simpan(Pendaftaran p, boolean editMode) throws Exception {
         // =====================
         // VALIDASI BUSINESS
         // =====================
 
         if (p.getTanggal() == null) {
-
-            throw new Exception(
-                    "Tanggal wajib diisi");
+            throw new Exception("Tanggal wajib diisi");
         }
 
         if (p.getPasien() == null) {
-
-            throw new Exception(
-                    "Pasien wajib dipilih");
+            throw new Exception("Pasien wajib dipilih");
         }
 
         if (p.getDokter() == null) {
-
-            throw new Exception(
-                    "Dokter wajib dipilih");
+            throw new Exception("Dokter wajib dipilih");
         }
 
-        if (p.getKeluhan() == null
-                || p.getKeluhan()
-                .trim()
-                .isEmpty()) {
-
-            throw new Exception(
-                    "Keluhan wajib diisi");
+        if (p.getKeluhan() == null || p.getKeluhan().trim().isEmpty()) {
+            throw new Exception("Keluhan wajib diisi");
         }
 
         // =====================
@@ -88,11 +66,8 @@ public class PendaftaranService {
         // =====================
 
         if (editMode) {
-
             dao.updatePendaftaran(p);
-
         } else {
-
             dao.insertPendaftaran(p);
         }
     }

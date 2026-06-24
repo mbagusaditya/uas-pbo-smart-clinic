@@ -13,8 +13,7 @@ public class RekamMedis {
 
     private String ringkasan;
 
-    public RekamMedis() {
-    }
+    public RekamMedis() {}
 
     public int getIdRekam() {
         return idRekam;

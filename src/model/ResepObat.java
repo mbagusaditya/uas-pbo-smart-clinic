@@ -14,8 +14,7 @@ public class ResepObat {
 
     private String keterangan;
 
-    public ResepObat() {
-    }
+    public ResepObat() {}
 
     public int getIdResep() {
         return idResep;
@@ -64,11 +63,9 @@ public class ResepObat {
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
     }
+
     @Override
     public String toString() {
-
-        return obat != null
-                ? obat.getNamaObat()
-                : "";
-    }    
+        return obat != null ? obat.getNamaObat() : "";
+    }
 }

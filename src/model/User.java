@@ -7,9 +7,7 @@ public class User {
     private String password;
     private String role;
 
-    public User(int idUser, String username,
-                String password, String role) {
-
+    public User(int idUser, String username, String password, String role) {
         this.idUser = idUser;
         this.username = username;
         this.password = password;
@@ -17,9 +15,7 @@ public class User {
     }
 
     public boolean login(String user, String pass) {
-
-        return username.equals(user)
-                && password.equals(pass);
+        return username.equals(user) && password.equals(pass);
     }
 
     public void logout() {

@@ -11,15 +11,15 @@ public class Pendaftaran {
     private Pasien pasien;
     private Dokter dokter;
 
-    public Pendaftaran() {
-    }
+    public Pendaftaran() {}
 
-    public Pendaftaran(int idDaftar,
-                       Date tanggal,
-                       String keluhan,
-                       Pasien pasien,
-                       Dokter dokter) {
-
+    public Pendaftaran(
+        int idDaftar,
+        Date tanggal,
+        String keluhan,
+        Pasien pasien,
+        Dokter dokter
+    ) {
         this.idDaftar = idDaftar;
         this.tanggal = tanggal;
         this.keluhan = keluhan;

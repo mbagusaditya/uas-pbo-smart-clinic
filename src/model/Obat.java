@@ -7,14 +7,9 @@ public class Obat {
     private int stok;
     private double harga;
 
-    public Obat() {
-    }
+    public Obat() {}
 
-    public Obat(int idObat,
-                String namaObat,
-                int stok,
-                double harga) {
-
+    public Obat(int idObat, String namaObat, int stok, double harga) {
         this.idObat = idObat;
         this.namaObat = namaObat;
         this.stok = stok;

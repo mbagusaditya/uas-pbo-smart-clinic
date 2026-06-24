@@ -19,7 +19,6 @@ public class Pasien extends Person {
 
     // CONSTRUCTOR KOSONG
     public Pasien() {
-
         super("");
 
         daftarRekam = new ArrayList<>();
@@ -27,15 +26,16 @@ public class Pasien extends Person {
     }
 
     // CONSTRUCTOR UTAMA
-    public Pasien(int idPasien,
-                  String nama,
-                  int umur,
-                  String gender,
-                  String alamat,
-                  String noHP,
-                  double tekananDarah,
-                  double gulaDarah) {
-
+    public Pasien(
+        int idPasien,
+        String nama,
+        int umur,
+        String gender,
+        String alamat,
+        String noHP,
+        double tekananDarah,
+        double gulaDarah
+    ) {
         super(nama);
 
         this.idPasien = idPasien;
@@ -120,50 +120,39 @@ public class Pasien extends Person {
     // RELASI OBJECT
 
     public void tambahRekamMedis(RekamMedis rm) {
-
         daftarRekam.add(rm);
     }
 
     public void tambahPrediksi(Prediksi p) {
-
         daftarPrediksi.add(p);
     }
 
     public ArrayList<RekamMedis> getDaftarRekam() {
-
         return daftarRekam;
     }
 
     public ArrayList<Prediksi> getDaftarPrediksi() {
-
         return daftarPrediksi;
     }
 
     // POLYMORPHISM
     @Override
     public void tampilInfo() {
+        System.out.println("ID Pasien : " + idPasien);
 
-        System.out.println(
-                "ID Pasien : " + idPasien);
+        System.out.println("Nama      : " + nama);
 
-        System.out.println(
-                "Nama      : " + nama);
+        System.out.println("Umur      : " + umur);
 
-        System.out.println(
-                "Umur      : " + umur);
+        System.out.println("Gender    : " + gender);
 
-        System.out.println(
-                "Gender    : " + gender);
+        System.out.println("Tekanan   : " + tekananDarah);
 
-        System.out.println(
-                "Tekanan   : " + tekananDarah);
-
-        System.out.println(
-                "Gula      : " + gulaDarah);
+        System.out.println("Gula      : " + gulaDarah);
     }
+
     @Override
     public String toString() {
-
         return nama;
     }
 }

@@ -271,6 +271,3 @@ INSERT INTO obat
 VALUES
 ('Amoxicillin', 50, 12000),
 ('Vitamin C', 80, 3000);
-
-
-
