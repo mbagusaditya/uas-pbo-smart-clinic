@@ -1,12 +1,6 @@
 CREATE DATABASE smart_clinic;
 USE smart_clinic;
 
-CREATE TABLE users (
-    id_user INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    PASSWORD VARCHAR(100) NOT NULL,
-    ROLE VARCHAR(20)
-);
 CREATE TABLE dokter (
     id_dokter INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
@@ -81,7 +75,6 @@ VALUES
 ('Ahmad', 40, 'Laki-laki',
 'Kendal', '089999999',
 150, 250);
-1);
 
 INSERT INTO pendaftaran
 (tanggal, keluhan, id_pasien, id_dokter)
@@ -226,18 +219,6 @@ CREATE TABLE pemeriksaan (
         ON DELETE CASCADE
 );
 
--- =========================
--- TABEL REKAM MEDIS
--- =========================
-CREATE TABLE rekam_medis (
-    id_rekam INT AUTO_INCREMENT PRIMARY KEY,
-    id_periksa INT,
-    tanggal DATE,
-    ringkasan TEXT,
-    FOREIGN KEY (id_periksa)
-        REFERENCES pemeriksaan(id_periksa)
-        ON DELETE CASCADE
-);
 
 -- =========================
 -- TABEL RESEP OBAT

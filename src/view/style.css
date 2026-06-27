@@ -120,10 +120,6 @@
    EDIT
 ========================= */
 
-.btn-edit{
-
-    -fx-background-color: #3498db;
-}
 
 .btn-edit:hover{
 
@@ -562,29 +558,24 @@
 .logo-title{
     -fx-font-size: 26px;
 }
+
 .btn-edit{
     -fx-background-color: #3498db;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
-    -fx-background-radius: 50;
-    -fx-pref-width: 45;
-    -fx-pref-height: 45;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 25;
+
     -fx-cursor: hand;
+
+    -fx-padding: 10 20 10 20;
 }
 
 .btn-edit:hover{
     -fx-background-color: #2980b9;
 }
 
-.btn-edit{
-    -fx-background-color: #3498db;
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
-    -fx-background-radius: 50;
-    -fx-pref-width: 45;
-    -fx-pref-height: 45;
-    -fx-cursor: hand;
-}
 
 .btn-edit:hover{
     -fx-background-color: #2980b9;

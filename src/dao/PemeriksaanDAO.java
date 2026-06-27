@@ -4,6 +4,8 @@ import database.DBConnection;
 import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Dokter;
+import model.Pasien;
 import model.Pemeriksaan;
 import model.Pendaftaran;
 
@@ -16,15 +18,44 @@ public class PemeriksaanDAO {
         ObservableList<Pemeriksaan> list = FXCollections.observableArrayList();
 
         try {
+            String sql = """
+                    SELECT
+                        pm.*,
+                        pd.keluhan,
+                        ps.id_pasien,
+                        ps.nama AS nama_pasien,
+                        d.id_dokter,
+                        d.nama AS nama_dokter
+                    FROM pemeriksaan pm
+                    JOIN pendaftaran pd
+                        ON pm.id_daftar = pd.id_daftar
+                    JOIN pasien ps
+                        ON pd.id_pasien = ps.id_pasien
+                    JOIN dokter d
+                        ON pd.id_dokter = d.id_dokter
+                    """;
+
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM pemeriksaan");
+            ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 Pemeriksaan p = new Pemeriksaan();
                 p.setIdPeriksa(rs.getInt("id_periksa"));
 
                 // Menginisialisasi objek Pendaftaran untuk Foreign Key
+                Pasien pasien = new Pasien();
+                pasien.setIdPasien(rs.getInt("id_pasien"));
+                pasien.setNama(rs.getString("nama_pasien"));
+
+                Dokter dokter = new Dokter();
+                dokter.setIdDokter(rs.getInt("id_dokter"));
+                dokter.setNama(rs.getString("nama_dokter"));
+
                 Pendaftaran pendaftaran = new Pendaftaran();
                 pendaftaran.setIdDaftar(rs.getInt("id_daftar"));
+                pendaftaran.setKeluhan(rs.getString("keluhan"));
+                pendaftaran.setPasien(pasien);
+                pendaftaran.setDokter(dokter);
+
                 p.setPendaftaran(pendaftaran);
 
                 p.setTanggalPeriksa(rs.getDate("tanggal_periksa"));
@@ -48,8 +79,7 @@ public class PemeriksaanDAO {
     // INSERT
     public void insertPemeriksaan(Pemeriksaan p) {
         try {
-            String sql =
-                "INSERT INTO pemeriksaan (id_daftar, tanggal_periksa, diagnosa, tekanan_darah, gula_darah, suhu, berat_badan, catatan, hasil_prediksi, tingkat_resiko) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO pemeriksaan (id_daftar, tanggal_periksa, diagnosa, tekanan_darah, gula_darah, suhu, berat_badan, catatan, hasil_prediksi, tingkat_resiko) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, p.getPendaftaran().getIdDaftar());
@@ -73,8 +103,7 @@ public class PemeriksaanDAO {
     // UPDATE
     public void updatePemeriksaan(Pemeriksaan p) {
         try {
-            String sql =
-                "UPDATE pemeriksaan SET id_daftar=?, tanggal_periksa=?, diagnosa=?, tekanan_darah=?, gula_darah=?, suhu=?, berat_badan=?, catatan=?, hasil_prediksi=?, tingkat_resiko=? WHERE id_periksa=?";
+            String sql = "UPDATE pemeriksaan SET id_daftar=?, tanggal_periksa=?, diagnosa=?, tekanan_darah=?, gula_darah=?, suhu=?, berat_badan=?, catatan=?, hasil_prediksi=?, tingkat_resiko=? WHERE id_periksa=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, p.getPendaftaran().getIdDaftar());
@@ -116,8 +145,7 @@ public class PemeriksaanDAO {
 
         try {
             // Pencarian dikonfigurasi berdasarkan diagnosa atau hasil prediksi
-            String sql =
-                "SELECT * FROM pemeriksaan WHERE diagnosa LIKE ? OR hasil_prediksi LIKE ?";
+            String sql = "SELECT * FROM pemeriksaan WHERE diagnosa LIKE ? OR hasil_prediksi LIKE ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, "%" + keyword + "%");

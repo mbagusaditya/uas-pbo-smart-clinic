@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Smart Clinic",
+            "request": "launch",
+            "mainClass": "AppMain",
+            "projectName": "uas-pbo-smart-clinic",
+            "vmArgs": "--module-path \"C:/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml",
+            "classPaths": [
+                "${workspaceRoot}/bin",
+                "${workspaceRoot}/target/classes",
+                "${workspaceRoot}/src",
+                "C:/Users/Ferdy Setiawan/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar"
+            ]
+        }
+    ]
+}

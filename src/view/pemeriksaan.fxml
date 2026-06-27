@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.PemeriksaanController"
+            stylesheets="@style.css">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+
+        <VBox alignment="CENTER"
+              spacing="15"
+              styleClass="top-panel">
+
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="FORM PEMERIKSAAN PASIEN"
+                   styleClass="title"/>
+
+        </VBox>
+
+    </top>
+
+    <!-- ================= CONTENT ================= -->
+
+    <center>
+
+        <VBox spacing="20">
+
+            <padding>
+                <Insets top="15" right="25" bottom="20" left="25"/>
+            </padding>
+
+            <!-- FORM -->
+
+            <GridPane hgap="20"
+                      vgap="15">
+
+                <columnConstraints>
+                    <ColumnConstraints minWidth="150"/>
+                    <ColumnConstraints minWidth="250"/>
+
+                    <ColumnConstraints minWidth="150"/>
+                    <ColumnConstraints minWidth="250"/>
+                </columnConstraints>
+
+                <Label text="ID"/>
+                <TextField fx:id="txtId"
+                           editable="false"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Tanggal"
+                       GridPane.columnIndex="2"/>
+
+                <DatePicker fx:id="dpTanggal"
+                            GridPane.columnIndex="3"/>
+
+                <Label text="Pendaftaran"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="cbPendaftaran"
+                          prefWidth="250"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <Label text="Diagnosa"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="txtDiagnosa"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="Tekanan Darah"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="txtTekanan"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                <Label text="Gula Darah"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="txtGula"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="2"/>
+
+                <Label text="Suhu"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="txtSuhu"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+                <Label text="Berat Badan"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="txtBerat"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="3"/>
+
+                <Label text="Catatan"
+                       GridPane.rowIndex="4"/>
+
+                <TextArea fx:id="txtCatatan"
+                          prefHeight="80"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <Label text="Hasil Prediksi"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="4"/>
+
+                <TextField fx:id="txtPrediksi"
+                           editable="false"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="4"/>
+
+                <Label text="Tingkat Risiko"
+                       GridPane.rowIndex="5"/>
+
+                <ComboBox fx:id="cbResiko"
+                          prefWidth="250"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
+
+            </GridPane>
+
+            <!-- BUTTON -->
+
+            <HBox spacing="15"
+                  alignment="CENTER">
+
+                <Button text="💾 Simpan"
+                        fx:id="btnSimpan"
+                        onAction="#handleSimpan"
+                        styleClass="btn-save"/>
+
+                <Button text="✏ Edit"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑 Hapus"
+                        fx:id="btnHapus"
+                        onAction="#handleHapus"
+                        styleClass="btn-danger"/>
+
+                <Button text="✖ Batal"
+                        onAction="#handleBatal"
+                        styleClass="btn-cancel"/>
+
+            </HBox>
+
+            <!-- SEARCH -->
+
+            <HBox spacing="10">
+
+                <Label text="Cari"/>
+
+                <TextField fx:id="txtCari"
+                           HBox.hgrow="ALWAYS"/>
+
+                <Button text="Cari"
+                        onAction="#handleCari"/>
+
+            </HBox>
+
+            <!-- TABLE -->
+
+            <TableView fx:id="tablePemeriksaan"
+                       prefHeight="350">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 text="ID"/>
+
+                    <TableColumn fx:id="colPasien"
+                                 text="Pasien"/>
+
+                    <TableColumn fx:id="colDokter"
+                                 text="Dokter"/>
+
+                    <TableColumn fx:id="colTanggal"
+                                 text="Tanggal"/>
+
+                    <TableColumn fx:id="colDiagnosa"
+                                 text="Diagnosa"/>
+
+                    <TableColumn fx:id="colPrediksi"
+                                 text="Prediksi"/>
+
+                    <TableColumn fx:id="colResiko"
+                                 text="Risiko"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

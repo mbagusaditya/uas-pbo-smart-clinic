@@ -78,6 +78,6 @@ public class DashboardController {
     }
       @FXML
     private void openPemeriksaan() {
-        //SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
+        SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
     }  
 }
