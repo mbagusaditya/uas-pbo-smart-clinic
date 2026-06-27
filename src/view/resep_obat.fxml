@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ResepObatController" stylesheets="@style.css">
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="DATA RESEP OBAT" styleClass="title" maxWidth="Infinity" alignment="CENTER" />
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕" onAction="#handleTambah" styleClass="btn-tambah"/>
+                <Button text="✏" onAction="#handleEdit" styleClass="btn-edit"/>
+                <Button text="🗑" onAction="#handleHapus" styleClass="btn-hapus"/>
+                <Button text="🔄" onAction="#loadData" styleClass="btn-refresh"/>
+                <TextField fx:id="txtCari" promptText="Cari resep..." prefWidth="180"/>
+                <Button text="🔍" onAction="#handleCari" styleClass="btn-cari"/>
+                <Button text="❌" onAction="#handleClose" styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <TableView fx:id="tableResep" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdResep" text="ID Resep"/>
+                    <TableColumn fx:id="colPemeriksaan" text="ID Pemeriksaan"/>
+                    <TableColumn fx:id="colObat" text="Obat"/>
+                    <TableColumn fx:id="colJumlah" text="Jumlah"/>
+                    <TableColumn fx:id="colDosis" text="Dosis"/>
+                    <TableColumn fx:id="colKeterangan" text="Keterangan"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

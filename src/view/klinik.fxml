@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.KlinikController" stylesheets="@style.css">
+    <top>
+        <VBox spacing="10" styleClass="top-panel">
+            <Label text="MANAJEMEN KLINIK" styleClass="title" maxWidth="Infinity" alignment="CENTER" />
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="➕" onAction="#handleTambah" styleClass="btn-tambah"/>
+                <Button text="✏" onAction="#handleEdit" styleClass="btn-edit"/>
+                <Button text="🗑" onAction="#handleHapus" styleClass="btn-hapus"/>
+                <Button text="🔄" onAction="#loadData" styleClass="btn-refresh"/>
+                <TextField fx:id="txtCari" promptText="Cari klinik..." prefWidth="180"/>
+                <Button text="🔍" onAction="#handleCari" styleClass="btn-cari"/>
+                <Button text="❌" onAction="#handleClose" styleClass="btn-close"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="15" styleClass="main-panel">
+            <TableView fx:id="tableKlinik" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID Klinik"/>
+                    <TableColumn fx:id="colNama" text="Nama Klinik"/>
+                    <TableColumn fx:id="colAlamat" text="Alamat"/>
+                    <TableColumn fx:id="colTelp" text="No Telepon"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

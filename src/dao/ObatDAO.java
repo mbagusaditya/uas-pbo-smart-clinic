@@ -56,7 +56,7 @@ public class ObatDAO {
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, o.getNama());
+            ps.setString(1, o.getNamaObat()); //tambahan bang
             ps.setInt(2, o.getStok());
             ps.setDouble(3, o.getHarga());
             ps.setInt(4, o.getIdObat());
