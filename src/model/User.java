@@ -22,6 +22,10 @@ public class User {
         System.out.println("Logout berhasil");
     }
 
+    public String getUsername() {
+        return this.username;
+    }
+
     public String getRole() {
         return role;
     }
