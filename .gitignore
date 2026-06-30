@@ -1,0 +1,52 @@
+# =========================
+# Java
+# =========================
+
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# =========================
+# Build Folder
+# =========================
+
+target/
+bin/
+build/
+out/
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.settings/
+.project
+.classpath
+
+# Eclipse
+.metadata/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# NetBeans
+nbproject/private/
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary
+# =========================
+
+*.tmp
+*.bak
+*.swp
