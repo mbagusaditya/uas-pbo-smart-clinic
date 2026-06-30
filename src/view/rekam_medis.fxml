@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RekamMedisController"
+            stylesheets="@style.css">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+
+        <VBox alignment="CENTER"
+              spacing="15"
+              styleClass="top-panel">
+
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="FORM REKAM MEDIS"
+                   styleClass="title"/>
+
+        </VBox>
+
+    </top>
+
+    <!-- ================= CONTENT ================= -->
+
+    <center>
+
+        <VBox spacing="20">
+
+            <padding>
+                <Insets top="15" right="25" bottom="20" left="25"/>
+            </padding>
+
+            <!-- ================= FORM ================= -->
+
+            <GridPane hgap="20"
+                      vgap="15">
+
+                <columnConstraints>
+                    <ColumnConstraints minWidth="150"/>
+                    <ColumnConstraints minWidth="250"/>
+
+                    <ColumnConstraints minWidth="150"/>
+                    <ColumnConstraints minWidth="250"/>
+                </columnConstraints>
+
+                <Label text="ID"/>
+
+                <TextField fx:id="txtId"
+                           editable="false"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Pasien"
+                       GridPane.columnIndex="2"/>
+
+                <ComboBox fx:id="cbPasien"
+                          prefWidth="250"
+                          GridPane.columnIndex="3"/>
+
+                <Label text="Dokter"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="cbDokter"
+                          prefWidth="250"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <Label text="Diagnosa"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="txtDiagnosa"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="Resep"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="txtResep"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                <Label text="Catatan"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="2"/>
+
+                <TextArea fx:id="txtCatatan"
+                          prefHeight="80"
+                          GridPane.columnIndex="3"
+                          GridPane.rowIndex="2"/>
+
+            </GridPane>
+
+            <!-- ================= BUTTON ================= -->
+
+            <HBox spacing="15"
+                  alignment="CENTER">
+
+                <Button text="💾 Simpan"
+                        fx:id="btnSimpan"
+                        onAction="#handleSimpan"
+                        styleClass="btn-save"/>
+
+                <Button text="✏ Edit"
+                        onAction="#handleEdit"
+                        styleClass="btn-edit"/>
+
+                <Button text="🗑 Hapus"
+                        onAction="#handleHapus"
+                        styleClass="btn-delete"/>
+
+                <Button text="✖ Batal"
+                        onAction="#handleBatal"
+                        styleClass="btn-cancel"/>
+
+            </HBox>
+
+            <!-- ================= SEARCH ================= -->
+
+            <HBox spacing="10">
+
+                <Label text="Cari"/>
+
+                <TextField fx:id="txtCari"
+                           HBox.hgrow="ALWAYS"/>
+
+                <Button text="Cari"
+                        onAction="#handleCari"/>
+
+            </HBox>
+
+            <!-- ================= TABLE ================= -->
+
+            <TableView fx:id="tableRekam"
+                       prefHeight="350">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 text="ID"/>
+
+                    <TableColumn fx:id="colPasien"
+                                 text="Pasien"/>
+
+                    <TableColumn fx:id="colDokter"
+                                 text="Dokter"/>
+
+                    <TableColumn fx:id="colDiagnosa"
+                                 text="Diagnosa"/>
+
+                    <TableColumn fx:id="colResep"
+                                 text="Resep"/>
+
+                    <TableColumn fx:id="colCatatan"
+                                 text="Catatan"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

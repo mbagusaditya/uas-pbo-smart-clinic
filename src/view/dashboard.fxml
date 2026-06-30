@@ -64,7 +64,7 @@
                     styleClass="menu-btn" onAction="#openPemeriksaan"  />
 
             <Button fx:id="btnRekam" text="📋  Rekam Medis"
-                    styleClass="menu-btn"/>
+                    styleClass="menu-btn" onAction="#openRekam"/>
 
             <Button fx:id="btnPrediksi" text="🧠  Prediksi ML"
                     styleClass="menu-btn"/>

@@ -18,17 +18,17 @@ public class DashboardController {
     @FXML
     private Label logoTitle;
     @FXML
-    private Button btnDashboard,btnPasien,btnDokter,btnPetugas,btnObat;
+    private Button btnDashboard, btnPasien, btnDokter, btnPetugas, btnObat;
     private boolean collapsed = false;
     @FXML
     private Label lblMaster, lblTransaksi, lblLaporan;
     @FXML
-    private Button btnPendaftaran,btnPemeriksaan,btnRekam,btnPrediksi;
+    private Button btnPendaftaran, btnPemeriksaan, btnRekam, btnPrediksi;
 
     @FXML
-    private void toggleSidebar(){
+    private void toggleSidebar() {
 
-        if(!collapsed){
+        if (!collapsed) {
             sidebar.setPrefWidth(80);
             logoTitle.setVisible(false);
             lblMaster.setVisible(false);
@@ -44,7 +44,7 @@ public class DashboardController {
             btnRekam.setText("📋");
             btnPrediksi.setText("🧠");
             collapsed = true;
-        }else{
+        } else {
             sidebar.setPrefWidth(240);
             logoTitle.setVisible(true);
             lblMaster.setVisible(true);
@@ -64,20 +64,29 @@ public class DashboardController {
             collapsed = false;
         }
     }
+
     @FXML
     private void openPasien() {
-        SceneUtil.openMaximizedWindow("/view/pasien.fxml","Data Pasien");
+        SceneUtil.openMaximizedWindow("/view/pasien.fxml", "Data Pasien");
     }
+
     @FXML
     private void openDokter() {
-        //SceneUtil.openMaximizedWindow("/view/dokter.fxml","Data Dokter");
+        // SceneUtil.openMaximizedWindow("/view/dokter.fxml","Data Dokter");
     }
+
     @FXML
     private void openPendaftaran() {
-        //SceneUtil.openMaximizedWindow("/view/pendaftaran.fxml","Pendaftaran");
+        // SceneUtil.openMaximizedWindow("/view/pendaftaran.fxml","Pendaftaran");
     }
-      @FXML
+
+    @FXML
     private void openPemeriksaan() {
-        SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml","pemeriksaan");
-    }  
+        SceneUtil.openMaximizedWindow("/view/pemeriksaan.fxml", "pemeriksaan");
+    }
+
+    @FXML
+    private void openRekam() {
+        SceneUtil.openMaximizedWindow("/view/rekam_medis.fxml","Rekam Medis");
+    }
 }
