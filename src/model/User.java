@@ -3,26 +3,83 @@ package model;
 public class User {
 
     private int idUser;
+    private String nama;
     private String username;
     private String password;
-    private String role;
 
-    public User(int idUser, String username, String password, String role) {
+    private Role role;
+    private Dokter dokter;
+
+    public User() {
+    }
+
+    public User(
+            int idUser,
+            String nama,
+            String username,
+            String password,
+            Role role,
+            Dokter dokter) {
+
         this.idUser = idUser;
+        this.nama = nama;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.dokter = dokter;
     }
 
-    public boolean login(String user, String pass) {
-        return username.equals(user) && password.equals(pass);
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void logout() {
-        System.out.println("Logout berhasil");
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
-    public String getRole() {
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
         return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Dokter getDokter() {
+        return dokter;
+    }
+
+    public void setDokter(Dokter dokter) {
+        this.dokter = dokter;
+    }
+
+    // helper untuk TableView
+
+    public String getNamaRole() {
+        return role != null ? role.getNamaRole() : "";
     }
 }

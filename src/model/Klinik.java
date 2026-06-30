@@ -1,37 +1,43 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Klinik {
 
+    private int idKlinik;
     private String namaKlinik;
     private String alamat;
+    private String noTelepon;
 
-    private ArrayList<Pasien> daftarPasien;
-    private ArrayList<Dokter> daftarDokter;
+    public Klinik() {}
 
-    public Klinik(String namaKlinik, String alamat) {
+    public int getIdKlinik() {
+        return idKlinik;
+    }
+
+    public void setIdKlinik(int idKlinik) {
+        this.idKlinik = idKlinik;
+    }
+
+    public String getNamaKlinik() {
+        return namaKlinik;
+    }
+
+    public void setNamaKlinik(String namaKlinik) {
         this.namaKlinik = namaKlinik;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
         this.alamat = alamat;
-
-        daftarPasien = new ArrayList<>();
-        daftarDokter = new ArrayList<>();
     }
 
-    public void tambahPasien(Pasien p) {
-        daftarPasien.add(p);
+    public String getNoTelepon() {
+        return noTelepon;
     }
 
-    public void tambahDokter(Dokter d) {
-        daftarDokter.add(d);
-    }
-
-    public void tampilData() {
-        System.out.println("=== DATA PASIEN ===");
-
-        for (Pasien p : daftarPasien) {
-            p.tampilInfo();
-            System.out.println();
-        }
+    public void setNoTelepon(String noTelepon) {
+        this.noTelepon = noTelepon;
     }
 }
