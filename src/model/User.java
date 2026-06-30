@@ -37,6 +37,12 @@ public class User {
         this.idUser = idUser;
     }
 
+    // NOTE MERGE
+    // Dipertahankan menggunakan objek Role agar konsisten
+    // dengan struktur model User dan UserDAO terbaru.
+    // Versi sebelumnya mengembalikan String sehingga tidak
+    // sesuai dengan implementasi CRUD User.
+
     public String getNama() {
         return nama;
     }

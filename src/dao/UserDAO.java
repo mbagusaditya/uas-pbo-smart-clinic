@@ -262,4 +262,75 @@ public class UserDAO {
         return list;
     }
 
+    // =========================
+    // GET USER LOGIN
+    // =========================
+    // NOTE MERGE
+    // Method getUser() versi sebelumnya dihapus karena:
+    // 1. Menggunakan kolom user_id (seharusnya id_user).
+    // 2. Konstruktor User sudah berubah dan sekarang menggunakan objek Role.
+    // 3. Digabung dengan CRUD User agar tidak terjadi duplicate method.
+
+public User getUser(String username) {
+
+    String sql = """
+            SELECT
+                u.id_user,
+                u.nama,
+                u.username,
+                u.password,
+                r.id_role,
+                r.nama_role
+            FROM users u
+            JOIN roles r
+            ON u.id_role = r.id_role
+            WHERE u.username = ?
+            LIMIT 1
+            """;
+
+    try {
+
+        PreparedStatement ps =
+                conn.prepareStatement(sql);
+
+        ps.setString(1, username);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+
+            Role role = new Role();
+
+            role.setIdRole(
+                    rs.getInt("id_role"));
+
+            role.setNamaRole(
+                    rs.getString("nama_role"));
+
+            User user = new User();
+
+            user.setIdUser(
+                    rs.getInt("id_user"));
+
+            user.setNama(
+                    rs.getString("nama"));
+
+            user.setUsername(
+                    rs.getString("username"));
+
+            user.setPassword(
+                    rs.getString("password"));
+
+            user.setRole(role);
+
+            return user;
+        }
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+    }
+
+    return null;
 }
