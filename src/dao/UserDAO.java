@@ -333,4 +333,5 @@ public User getUser(String username) {
     }
 
     return null;
+    }
 }
